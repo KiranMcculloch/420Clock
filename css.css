@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'photograph';
+    src: url('./font/photographsignature-webfont.woff2') format('woff2'),
+         url('./font/photographsignature-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'metamorphous';
+    src: url('./font/metamorphous-regular-webfont.woff2') format('woff2'),
+         url('./font/metamorphous-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'aguafina';
+    src: url('./font/aguafinascript-regular-webfont.woff2') format('woff2'),
+         url('./font/aguafinascript-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
