@@ -18,7 +18,16 @@
             font-family: 'batik';
             src: url('./font/batik_worldwide_personal_use-webfont.woff2') format('woff2'),
             url('./font/batik_worldwide_personal_use-webfont.woff') format('woff');
-            font-weight: bold;
+            font-weight: normal;
+            font-style: normal;
+
+        }
+
+        @font-face {
+            font-family: 'digital';
+            src: url('./font/digital-7_mono-webfont.woff2') format('woff2'),
+            url('./font/digital-7_mono-webfont.woff') format('woff');
+            font-weight: normal;
             font-style: normal;
 
         }
@@ -27,7 +36,7 @@
             font-family: 'artefak';
             src: url('./font/artefak_clean_typeface-webfont.woff2') format('woff2'),
             url('./font/artefak_clean_typeface-webfont.woff') format('woff');
-            font-weight: bold;
+            font-weight: normal;
             font-style: normal;
 
         }
@@ -74,11 +83,13 @@
 
         #countdown{
             text-align: center;
-            font-size: 72px;
+            font-family: digital;
+            font-size: 100px;
             color: white;
             margin: auto;
             width: 50%;
             padding-top: 0px;
+            text-shadow: -2px 3px black;
         }
 
         #debug{
@@ -121,12 +132,13 @@
                 var compareInt = convertTime(compare);
                 if (compareInt == 42000){
                     closest_Zone = compareZone;
-                    am = 1;
+                    am =1;
                     exact = 1;
                     break;
                 } else if (compareInt == 162000){
                     closest_Zone = compareZone;
                     exact = 1;
+                    am =0;
                     break;
                 } else if (compareInt > 162000 || compareInt <42000){
                     var dist = Math.abs(compareInt-42000);
@@ -138,6 +150,7 @@
                 } else if (compareInt < 162000 && compareInt > 42000){
                     var dist = Math.abs(compareInt-162000);
                     if (dist < closest){
+                        am = 0;
                         closest = dist;
                         closest_Zone = compareZone;
                     }
@@ -157,13 +170,13 @@
                     document.getElementById("text2").innerHTML = "in "+shortZone;
                     var s = closest%100;
                     if (s == 0){
-                        document.getElementById("countdown").innerHTML = "00:"+Math.floor(((closest)/100))+":0"+(s);
+                        document.getElementById("countdown").innerHTML = (Math.floor(((closest)/100))-40)+":0"+(s);
                     } else if (s<50){
                         s -= 40;
-                        document.getElementById("countdown").innerHTML = "00:"+Math.floor((closest-s)/100)+":0"+(s);
+                        document.getElementById("countdown").innerHTML = (Math.floor(((closest)/100))-40)+":0"+(s);
                     } else {
                         s -= 40;
-                        document.getElementById("countdown").innerHTML ="00:"+ Math.floor(((closest-s)/100))+":"+(s);
+                        document.getElementById("countdown").innerHTML = (Math.floor(((closest)/100))-40)+":"+(s);
                     }
                 }
             } else {
@@ -177,13 +190,13 @@
                     document.getElementById("text2").innerHTML = "in "+shortZone;
                     var s = closest%100;
                     if (s == 0){
-                        document.getElementById("countdown").innerHTML = "00:"+Math.floor(((closest)/100))+":0"+(s);
+                        document.getElementById("countdown").innerHTML = Math.floor(((closest)/100))+":0"+(s);
                     } else if (s<50){
                         s -= 40;
-                        document.getElementById("countdown").innerHTML = "00:"+Math.floor((closest-s)/100)+":0"+(s);
+                        document.getElementById("countdown").innerHTML = Math.floor((closest-s)/100)+":0"+(s);
                     } else {
                         s -= 40;
-                        document.getElementById("countdown").innerHTML ="00:"+ Math.floor(((closest-s)/100))+":"+(s);
+                        document.getElementById("countdown").innerHTML = Math.floor(((closest-s)/100))+":"+(s);
                     }
 
                 }
